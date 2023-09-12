@@ -9,26 +9,23 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.math.BigDecimal;
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(value = "products")
-public class Product {
+@Document(value = "clients")
+public class Client {
 
     @Id
     private String id = new ObjectId().toString();
-
     private String name;
-    private String Description;
-    private BigDecimal amount;
+    private Integer age;
     @Indexed(unique = true, background = true)
-    private String code;
-    public Product(String name, String description, BigDecimal amount, String code) {
+    private String email;
+
+    public Client(String name, Integer age, String email) {
         this.name = name;
-        this.code = code;
-        Description = description;
-        this.amount = amount;
+        this.age = age;
+        this.email = email;
     }
 }
